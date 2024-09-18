@@ -4,7 +4,6 @@ const headerCurrent = document.querySelectorAll('.header-list--item')
 headerCurrent[0].classList.add('setColor')
 headerCurrent.forEach(value=>{
     value.addEventListener('click', (e)=>{
-        //xoá tất cả các class setColor từ các div
         headerCurrent.forEach(value => value.classList.remove('setColor'))
         e.target.classList.add('setColor')
     })
@@ -15,12 +14,10 @@ const hmtl = document.querySelector('html')
 const search = document.querySelector('.header-search')
 const searchCoverage = document.querySelector('.header--search__converage')
 const headerIcon = document.querySelector('.header--container__icon')
-//Bước 1: lấy đối tượng MediaQueryList lưu vào trong biến mediaQuery 
-//với điều kiện là max-width: 1023px
-//Bước 2: Tạo ra hàm kiểm tra điều kiện nếu đúng thực hiện chức năng gì đấy 
+
 const mediaQuery = window.matchMedia('(max-width: 63.9375em)')
 function handleMedia(mediaQuery){
-    if(mediaQuery.matches){ //kiểm tra điều kiện
+    if(mediaQuery.matches){ 
         search.onclick = () => {
             searchCoverage.style.display = "flex"
             hmtl.style.overflow = 'hidden'
