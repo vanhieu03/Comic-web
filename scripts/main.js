@@ -9,28 +9,67 @@ headerCurrent.forEach(value=>{
     })
 })
 
+//////////header responsive
+const html = document.querySelector('html');
+const headerBar = document.querySelector('.header--bar__icon');
+const headerControl = document.querySelector('.header--bar__control');
+const headerOverlay = document.querySelector('.header--bar__overlay');
+const headerMark = document.querySelector('.header--bar__xmark');
+
+// Sự kiện khi nhấn vào icon để mở/đóng menu
+headerBar.addEventListener('click', () => {
+    const isControlVisible = getComputedStyle(headerControl).display !== 'none';
+    
+    if (!isControlVisible) {
+        headerControl.style.display = 'flex';
+        html.style.overflow = 'hidden'; 
+    } else {
+        headerControl.style.display = 'none';
+        html.style.overflow = 'visible'; 
+    }
+});
+
+headerControl.addEventListener('click', () => {
+    headerControl.style.display = 'none';
+    html.style.overflow = 'visible'; 
+});
+
+headerOverlay.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+});
+
+headerMark.addEventListener('click', () => {
+    headerControl.style.display = 'none'; 
+    html.style.overflow = 'visible'; 
+});
+
+
+
+
 //header search
-const hmtl = document.querySelector('html')
-const search = document.querySelector('.header-search')
-const searchCoverage = document.querySelector('.header--search__converage')
+
+const search = document.querySelector('.header-search--item')
+const searchConverage = document.querySelector('.header--search__converage')
 const headerIcon = document.querySelector('.header--container__icon')
 
 const mediaQuery = window.matchMedia('(max-width: 63.9375em)')
 function handleMedia(mediaQuery){
     if(mediaQuery.matches){ 
-        search.onclick = () => {
-            searchCoverage.style.display = "flex"
-            hmtl.style.overflow = 'hidden'
-        }
-        headerIcon.onclick = () =>{
-            searchCoverage.style.display = "none"
-            hmtl.style.overflow = 'visible'
-        }
+        search.addEventListener('click', ()=>{
+            searchConverage.style.display = "flex"
+            html.style.overflow = 'hidden'
+        })
+        headerIcon.addEventListener('click', () =>{
+            searchConverage.style.display = "none"
+            html.style.overflow = 'visible'
+        })
+    }
+    else {
+        searchConverage.style.display = 'none';
+        html.style.overflow = 'visible';
     }
 }
-//kiểm tra sự thay đổi và gọi lại hàm handleMedia
 mediaQuery.addEventListener('change', handleMedia)
-//gọi đến hàm handleMedia và để kiểm tra và áp dụng điều kiện 
 handleMedia(mediaQuery)
 
 
@@ -43,12 +82,11 @@ setInterval(() => {
     index++;
     let width = sliderList[0].offsetWidth;
     const sliderListLength = sliderList.length
-    console.log(sliderListLength)
     if (index >= sliderListLength) {
         index = 0; 
     }
     slider.style.transform = `translateX(${-width * index}px)`;
-}, 3000);
+}, 2000);
 
 
 

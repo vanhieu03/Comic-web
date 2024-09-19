@@ -22,7 +22,7 @@ html{
 .hoverText:hover{
     color: #f33;
 }
-
+/* Tablet && Mobile */
 @media only screen and (max-width: 63.9375em){
     .layoutCenter{
         margin-left: 16px;
@@ -53,28 +53,34 @@ html{
         width: 24%;
     }
 }
-
-/* mobile min: 500px max: 740px */
-@media only screen and (min-width: 31.25em) and (max-width: 46.1875em){
+/* Mobile max: 740px */
+@media only screen and (max-width: 46.1875em){
+    .header--left__logo{
+        display: none;
+    }
     .header-list{
         display: none;
+    }
+    .header--bar{
+        display: block;
     }
     .propose--comic__info{
         width: 100%;
     }
+}
+/* mobile min: 500px max: 740px */
+@media only screen and (min-width: 31.25em) and (max-width: 46.1875em){
+    
     .updateNew-comic--list{
         width: 32%;
     }
     
 }
 
+
+/* Mobile max: 500px */
 @media only screen and (max-width: 31.25em){
-    .header-list{
-        display: none;
-    }
-    .propose--comic__info{
-        width: 100%;
-    }
+    
     .updateNew-comic--list{
         width: 48.5%;
     }
