@@ -1,5 +1,5 @@
 /////////////HEADER
-
+const html = document.querySelector('html');
 const headerCurrent = document.querySelectorAll('.header-list--item')
 headerCurrent[0].classList.add('setColor')
 headerCurrent.forEach(value=>{
@@ -10,7 +10,7 @@ headerCurrent.forEach(value=>{
 })
 
 //////////header responsive
-const html = document.querySelector('html');
+
 const headerBar = document.querySelector('.header--bar__icon');
 const headerControl = document.querySelector('.header--bar__control');
 const headerOverlay = document.querySelector('.header--bar__overlay');
@@ -71,6 +71,44 @@ function handleMedia(mediaQuery){
 }
 mediaQuery.addEventListener('change', handleMedia)
 handleMedia(mediaQuery)
+
+
+///////////////login/signup
+//login
+const loginElement = document.querySelector('.header-access--login')
+const accessOverlay = document.querySelector('.header-access--overlay')
+const loginOverlay = document.querySelector('.access--overlay__login')
+
+loginElement.addEventListener('click', ()=>{
+    accessOverlay.style.display = 'flex'
+    loginOverlay.style.display = 'block'
+    html.style.overflow = 'hidden'; 
+    
+})
+loginOverlay.addEventListener('click',(e)=>{
+    e.stopPropagation()
+})
+
+//singup
+const signupElement = document.querySelector('.header-access--signup')
+const signupOverlay = document.querySelector('.access--overlay__signup')
+
+signupElement.addEventListener('click', (e)=>{
+    accessOverlay.style.display = 'flex'
+    signupOverlay.style.display = 'block'
+    html.style.overflow = 'hidden'; 
+    
+})
+signupOverlay.addEventListener('click',(e)=>{
+    e.stopPropagation()
+})
+accessOverlay.addEventListener('click', ()=>{
+    accessOverlay.style.display = 'none'
+    loginOverlay.style.display = 'none' 
+    signupOverlay.style.display = 'none'
+    html.style.overflow = 'visible'; 
+})
+
 
 
 ////////////SLIDER

@@ -152,11 +152,82 @@
 
 .header-access--login{
     margin-left: 10px;
-    margin-right: 10px;
 }
 
 .header-access--signup{
 
+}
+
+.header-access--hover{
+    padding: 8px 8px;
+    border-radius: 4px;
+}
+
+.header-access--hover:hover{
+    cursor: pointer;
+    background-color: #28292e;
+}
+
+.header-access--overlay{
+    /* display: flex; */
+    display: none; 
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background-color: rgb(33 33 33 / 46%);
+    z-index: 999;
+}
+
+.access--overlay{
+    display: none;
+    max-width: 300px;
+    min-width: 250px;
+    max-height: 300px;
+    width: 35%;
+    height: 50%;
+    margin-top: 90px;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    border-color: #1e1e1e;
+    color: #fff;
+    box-shadow: 1px 1px 20px 1px grey !important;
+}
+
+.access--overlay__login{
+    display: none;
+}
+
+.access--overlay__signup{
+    display: none;
+}
+
+.access--overlay__block{
+    text-align: center;
+    margin: 0 20px;
+}
+
+.access--overlay__header{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.access--overlay__input{
+    width: 100%;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    background-color: #242424;
+    height: 1.5rem;
+    padding: 20px 0 20px 8px;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+}
+
+.access--overlay__btn{
+    padding: 8px 16px;
+    margin-top: 20px;
 }
 
 
